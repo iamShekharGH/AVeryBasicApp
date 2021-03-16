@@ -12,6 +12,7 @@ import com.iamshekhargh.averybasicapp.networkFiles.ApiEndpoints;
 import com.iamshekhargh.averybasicapp.networkFiles.CustomCallback;
 import com.iamshekhargh.averybasicapp.networkFiles.EnvironmentProvider;
 import com.iamshekhargh.averybasicapp.networkFiles.RetrofitObjectProvider;
+import com.iamshekhargh.averybasicapp.ui.fragments.ShowListOfCardsFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -27,15 +28,32 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", v -> getSingleUser()).show();
-            getSingleUser();
-        });
-//        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new FirstFragment()).addToBackStack(null).commit();
+
+        setRVFragment(false);
+        setApiCallFAB(false);
+        
+
     }
 
+    private void setApiCallFAB(boolean b) {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        if (b) {
+            fab.setVisibility(View.VISIBLE);
+            fab.setOnClickListener(view -> {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", v -> getSingleUser()).show();
+                getSingleUser();
+            });
+        } else {
+            fab.setVisibility(View.INVISIBLE);
+
+        }
+
+    }
+
+    private void setRVFragment(boolean b) {
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, ShowListOfCardsFragment.newInstance()).addToBackStack(null).commit();
+    }
 
 
     protected void getSingleUser() {
