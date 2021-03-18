@@ -13,6 +13,7 @@ import com.iamshekhargh.averybasicapp.networkFiles.CustomCallback;
 import com.iamshekhargh.averybasicapp.networkFiles.EnvironmentProvider;
 import com.iamshekhargh.averybasicapp.networkFiles.RetrofitObjectProvider;
 import com.iamshekhargh.averybasicapp.ui.fragments.ShowListOfCardsFragment;
+import com.iamshekhargh.averybasicapp.ui.fragments.WakeMeUpFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,8 +32,17 @@ public class HomeActivity extends AppCompatActivity {
 
         setRVFragment(false);
         setApiCallFAB(false);
-        
+        showWakeMeUp(true);
 
+
+    }
+
+    private void showWakeMeUp(boolean b) {
+        if (b) {
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, WakeMeUpFragment.newInstance()).addToBackStack(null).commit();
+        } else {
+
+        }
     }
 
     private void setApiCallFAB(boolean b) {
@@ -52,7 +62,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setRVFragment(boolean b) {
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, ShowListOfCardsFragment.newInstance()).addToBackStack(null).commit();
+        if (b)
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, ShowListOfCardsFragment.newInstance()).addToBackStack(null).commit();
     }
 
 
