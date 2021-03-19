@@ -10,8 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AVeryBasicApp">
-        <activity android:name=".ui.ResultActivity"></activity>
+        android:theme="@style/Theme.AVeryBasicApp.NoActionBar">
+        <activity
+            android:name=".ui.ResultActivity"
+            android:parentActivityName=".ui.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"

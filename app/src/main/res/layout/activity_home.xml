@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:elevation="4dp"
             app:popupTheme="@style/Theme.AVeryBasicApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -23,6 +24,16 @@
     <include
         android:id="@+id/fragment_container"
         layout="@layout/content_home" />
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/homeactivity_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:gravity="center"-->
+<!--        android:onClick="openActivity"-->
+<!--        android:text="Open Child Activity"-->
+<!--        android:textSize="21sp" />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

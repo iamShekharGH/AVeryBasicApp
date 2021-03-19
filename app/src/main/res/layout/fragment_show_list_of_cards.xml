@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/cardview_shadow_start_color"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ShowListOfCardsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/showlist_rv"
         android:layout_width="match_parent"
+        android:fadingEdge="horizontal"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

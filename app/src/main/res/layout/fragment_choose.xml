@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="6"
+    tools:context=".ui.fragments.ChooseFragment">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Open Rv Fragment"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Show FAB For Api call"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Show Alarm manager !"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_open_child_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Open Child Activity !"
+        android:textSize="21sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
