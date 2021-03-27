@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    android:weightSum="6"
+    android:weightSum="7"
     tools:context=".ui.fragments.ChooseFragment">
 
 
@@ -45,5 +45,33 @@
         android:layout_weight="1"
         android:text="Open Child Activity !"
         android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_coordinator_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Open Coordinator Layout!"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_roomdb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Open Romm Activity"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragchoose_googlelogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:text="Google Login Fragment"
+        android:textSize="21sp" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

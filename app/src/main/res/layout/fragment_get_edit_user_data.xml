@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/room_card_background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Add/Edit user info"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="First Name"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Last Name"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Age"
+        android:textSize="21sp" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="gender"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_mobileno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="mobile No"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/bottomfrag_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:gravity="center"
+        android:hint="id"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bottomfrag_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="24sp" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -19,6 +19,9 @@ public class ChooseFragment extends Fragment implements View.OnClickListener {
     AppCompatButton api;
     AppCompatButton alarmM;
     AppCompatButton openChildActivity;
+    AppCompatButton openCoordinatorLayout;
+    AppCompatButton openRoomActivity;
+    AppCompatButton googleLoginFrag;
 
     ChooseFragInterface chooseFragInterface;
 
@@ -45,6 +48,9 @@ public class ChooseFragment extends Fragment implements View.OnClickListener {
         api = v.findViewById(R.id.fragchoose_api);
         alarmM = v.findViewById(R.id.fragchoose_alarm);
         openChildActivity = v.findViewById(R.id.fragchoose_open_child_activity);
+        openCoordinatorLayout = v.findViewById(R.id.fragchoose_coordinator_fragment);
+        openRoomActivity = v.findViewById(R.id.fragchoose_roomdb);
+        googleLoginFrag = v.findViewById(R.id.fragchoose_googlelogin);
         return v;
     }
 
@@ -56,6 +62,9 @@ public class ChooseFragment extends Fragment implements View.OnClickListener {
         api.setOnClickListener(this);
         alarmM.setOnClickListener(this);
         openChildActivity.setOnClickListener(this);
+        openCoordinatorLayout.setOnClickListener(this);
+        openRoomActivity.setOnClickListener(this);
+        googleLoginFrag.setOnClickListener(this);
 
     }
 
@@ -73,6 +82,16 @@ public class ChooseFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.fragchoose_open_child_activity) {
             chooseFragInterface.startFrag(4);
         }
+        if (v.getId() == R.id.fragchoose_coordinator_fragment) {
+            chooseFragInterface.startFrag(5);
+        }
+        if (v.getId() == R.id.fragchoose_roomdb) {
+            chooseFragInterface.startFrag(6);
+        }
+        if (v.getId() == R.id.fragchoose_googlelogin) {
+            chooseFragInterface.startFrag(7);
+        }
+
     }
 
     @Override

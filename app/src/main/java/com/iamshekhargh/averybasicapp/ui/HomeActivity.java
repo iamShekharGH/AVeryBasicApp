@@ -18,8 +18,12 @@ import com.iamshekhargh.averybasicapp.networkFiles.CustomCallback;
 import com.iamshekhargh.averybasicapp.networkFiles.EnvironmentProvider;
 import com.iamshekhargh.averybasicapp.networkFiles.RetrofitObjectProvider;
 import com.iamshekhargh.averybasicapp.ui.fragments.ChooseFragment;
+import com.iamshekhargh.averybasicapp.ui.fragments.GoogleLoginFragment;
+import com.iamshekhargh.averybasicapp.ui.fragments.PlayWithCoordinator;
 import com.iamshekhargh.averybasicapp.ui.fragments.ShowListOfCardsFragment;
 import com.iamshekhargh.averybasicapp.ui.fragments.WakeMeUpFragment;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,9 +31,22 @@ import androidx.appcompat.widget.Toolbar;
 import retrofit2.Call;
 
 public class HomeActivity extends AppCompatActivity implements ChooseFragment.ChooseFragInterface {
-    ApiEndpoints apiEndpoints;
 
+    ApiEndpoints apiEndpoints;
     FloatingActionButton fab;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        chooseFragment();
+
+        fab = findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,31 +111,10 @@ public class HomeActivity extends AppCompatActivity implements ChooseFragment.Ch
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-//
-//        setRVFragment(false);
-//        setApiCallFAB(false);
-//        showWakeMeUp(true);
-
-        chooseFragment();
-
-        fab = findViewById(R.id.fab);
-        fab.setVisibility(View.INVISIBLE);
-
-
-    }
-
     private void chooseFragment() {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, ChooseFragment.newInstance()).addToBackStack(null).commit();
     }
-
 
     private void showWakeMeUp(boolean b) {
         if (b) {
@@ -133,7 +129,9 @@ public class HomeActivity extends AppCompatActivity implements ChooseFragment.Ch
         if (b) {
             fab.setVisibility(View.VISIBLE);
             fab.setOnClickListener(view -> {
-                getSingleUser();
+//                getSingleUser();
+                getMultiUser();
+
             });
         } else {
             fab.setVisibility(View.INVISIBLE);
@@ -149,6 +147,57 @@ public class HomeActivity extends AppCompatActivity implements ChooseFragment.Ch
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, ShowListOfCardsFragment.newInstance()).addToBackStack(null).commit();
     }
 
+    public void openActivity() {
+        Intent i = new Intent(this, ResultActivity.class);
+        startActivity(i);
+//        finish();
+    }
+
+    private void loadCoordinatorFragment() {
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, PlayWithCoordinator.newInstance()).addToBackStack(null).commit();
+    }
+
+    private void loadSignInFragment() {
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, GoogleLoginFragment.newInstance()).addToBackStack(null).commit();
+
+    }
+
+    private void loadRoomActivity() {
+        startActivity(new Intent(this, RoomDBActivity.class));
+    }
+
+    @Override
+    public void startFrag(int i) {
+
+        switch (i) {
+            case 1:
+                showWakeMeUp(true);
+                break;
+            case 2:
+                setApiCallFAB(true);
+                break;
+            case 3:
+                setRVFragment(true);
+                break;
+            case 4:
+                openActivity();
+                break;
+            case 5:
+                loadCoordinatorFragment();
+                break;
+            case 6:
+                loadRoomActivity();
+                break;
+            case 7:
+                loadSignInFragment();
+                break;
+
+            default:
+                showSnackbar("HAHAHA!!");
+                break;
+        }
+
+    }
 
     protected void getSingleUser() {
         apiEndpoints = RetrofitObjectProvider.getClient(
@@ -169,34 +218,24 @@ public class HomeActivity extends AppCompatActivity implements ChooseFragment.Ch
         });
     }
 
-    public void openActivity() {
-        Intent i = new Intent(this, ResultActivity.class);
-        startActivity(i);
-//        finish();
+    protected void getMultiUser() {
+        apiEndpoints = RetrofitObjectProvider.getClient(EnvironmentProvider.getUrl(), this)
+                .create(ApiEndpoints.class);
+        Call<List<UserResponseModel>> c = apiEndpoints.getAllList();
+        c.enqueue(new CustomCallback<List<UserResponseModel>>() {
+            @Override
+            public void onDataArrived(List<UserResponseModel> userResponseModels) {
+                Log.i("onDataArriveList", userResponseModels.toString());
+                showSnackbar("onDataArriveList" + userResponseModels.toString());
+
+
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
     }
 
-
-    @Override
-    public void startFrag(int i) {
-
-        switch (i) {
-            case 1:
-                showWakeMeUp(true);
-                break;
-            case 2:
-                setApiCallFAB(true);
-                break;
-            case 3:
-                setRVFragment(true);
-                break;
-            case 4:
-                openActivity();
-                break;
-
-            default:
-                showSnackbar("HAHAHA!!");
-                break;
-        }
-
-    }
 }
