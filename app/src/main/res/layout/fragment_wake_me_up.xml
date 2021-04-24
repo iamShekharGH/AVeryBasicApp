@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_columnWeight="1"
+    android:layout_marginStart="48dp"
+    android:layout_marginEnd="48dp"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
+    android:weightSum="8"
+    tools:context=".ui.fragments.WakeMeUpFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="21dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Chooj a time"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/wakemeupfrag_time_acet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawableStart="@mipmap/ic_tractor_round"
+        android:gravity="center"
+        android:hint="time bata"
+        android:inputType="datetime"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wakemeupfrag_time_actv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawableStart="@mipmap/ic_tractor_round"
+        android:gravity="center"
+        android:text="time bata!" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="21dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Chooj a date"
+        android:textSize="21sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/wakemeupfrag_date_acet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawableStart="@mipmap/ic_tractor_round"
+        android:gravity="center"
+        android:hint="date bata"
+        android:inputType="datetime"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wakemeupfrag_date_actv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawableStart="@mipmap/ic_tractor_round"
+        android:gravity="center"
+        android:text="date bata!" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/wakemeupfrag_notifone_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Show First Notification" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/wakemeupfrag_notiftwo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Set Alarm" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
